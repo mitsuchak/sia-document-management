@@ -46,7 +46,7 @@ class DocumentController extends Controller
         $document->mimetype = $file->getMimeType();
         $document->save();
 
-        $directory = 'public/documents/' . $document->id;
+        $directory = 'documents/' . $document->id;
         $path = $file->storeAs($directory, $file->getClientOriginalName(), 'public');
 
         $document->path = $path;
@@ -97,7 +97,7 @@ class DocumentController extends Controller
             $document->type = 'pdf';
             $document->extension = $file->getClientOriginalExtension();
             $document->mimetype = $file->getMimeType();
-            $directory = 'public/documents/' . $document->id;
+            $directory = 'documents/' . $document->id;
             $path = $file->storeAs($directory, $file->getClientOriginalName(), 'public');
     
             $document->path = $path;
@@ -126,14 +126,10 @@ class DocumentController extends Controller
 
         $filePath = storage_path('app/public/' . $document->path);
 
-        // Check if the file exists
         if (!Storage::disk('public')->exists($document->path)) {
             abort(404, 'File not found');
         }
 
-        // Return a streamed response with the file for download
-        return response()->streamDownload(function () use ($filePath) {
-            echo Storage::disk('public')->get($filePath);
-        }, $document->name);
+        return response()->download($filePath);
     }
 }
