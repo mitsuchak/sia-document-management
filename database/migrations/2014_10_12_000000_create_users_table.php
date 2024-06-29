@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->tinyInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            // $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->enum('status',['requested','approved','rejected'])->default('requested');
             $table->tinyInteger('active')->default(0);
             $table->rememberToken();
