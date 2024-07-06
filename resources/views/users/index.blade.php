@@ -50,7 +50,9 @@
                                     <th>First name</th>
                                     <th>Last name</th>
                                     <th>Email</th>
-                                    <th>
+                                    <th>Company Name</th>
+                                    <th>Designation</th>
+                                    <th style="width:15%">
                                         <form action="{{route('users.index')}}" method="get" id="search_form">
                                             <select id="filterRole" name="filter_role" class="form-select" onchange="document.getElementById('search_form').submit()" style="width: 150px;">
                                                 <option value="">Filter By Role</option>
@@ -71,6 +73,8 @@
                                     <td>{{$user->first_name}}</td>
                                     <td>{{$user->last_name}}</td>
                                     <td>{{$user->email}}</td>
+                                    <td>{{!is_null($user->company_name) ? $user->company_name : 'NA'}}</td>
+                                    <td>{{!is_null($user->designation) ? $user->designation : 'NA'}}</td>
                                     <td>{{$user->roles->role_name}}</td>
                                     <td>
                                         <a href="{{route('users.edit',['id'=>$user->id])}}" class="btn btn-warning rounded-pill">Edit</a>

@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class LoginCredentials extends Mailable
+class AcknowledgeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -29,12 +29,10 @@ class LoginCredentials extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.login_credentials')
+        return $this->view('emails.acknowledgenmail')
                     ->with([
                         'first_name' => $this->credentials['first_name'],
-                        'email' => $this->credentials['email'],
-                        'password' => $this->credentials['password'],
-                    ])
-                    ->subject('Your Login Credentials');
+                        'last_name' => $this->credentials['last_name'],
+                    ])->subject('Signup successfully');
     }
 }

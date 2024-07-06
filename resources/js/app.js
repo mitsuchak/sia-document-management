@@ -491,6 +491,23 @@ $(document).ready(() => {
             })
         }
 
+        function registrationFormValidaion() {
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            // Loop over them and prevent submission
+            document.querySelectorAll('.register-form').forEach(form => {
+                form.addEventListener('submit', event => {
+
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        }
+
         function init() {
             initComponents();
             initPortletCard();
@@ -504,6 +521,7 @@ $(document).ready(() => {
             initFormAdvance();
             userFormValidaion();
             fileValidaion();
+            registrationFormValidaion();
         }
 
         init();

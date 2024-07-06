@@ -43,9 +43,10 @@
                         <table id="scroll-horizontal-datatable" class="table table-striped w-100 nowrap table-responsive-sm">
                             <thead>
                                 <tr>
-                                    <th style="width: 20%;">User Name</th>
                                     <th style="width: 20%;">Full name</th>
                                     <th style="width: 20%;">Email</th>
+                                    <th style="width: 20%;">Company Name</th>
+                                    <th style="width: 20%;">Designation</th>
                                     <th style="width: 20%;">Status</th>
                                     <th style="width: 20%;">Action</th>
                                 </tr>
@@ -54,11 +55,14 @@
                                 @if(count($users) > 0)
                                     @foreach($users as $key=>$user)
                                     <tr>
-                                        <td>{{$user->username}}</td>
 
                                         <td>{{$user->first_name}} {{$user->last_name}}</td>
 
                                         <td>{{$user->email}}</td>
+
+                                        <td>{{!is_null($user->company_name) ? $user->company_name : 'NA'}}</td>
+
+                                        <td>{{!is_null($user->designation) ? $user->designation : 'NA'}}</td>
 
                                         <td>{{$user->status}}</td>
 

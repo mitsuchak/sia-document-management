@@ -327,39 +327,134 @@
                 <div class="col-xxl-4 col-lg-5">
                     <div class="card">
                         <!-- Logo-->
-                        <div class="card-header py-4 text-center bg-primary">
+                        <div class="card-header py-4 text-center ">
                             <a href="#">
-                                <span><img src="/images/logo.png" alt="logo"
-                                        height="22"></span>
+                                <span><img src="/images/logo.png" alt="logo" height="60"></span>
                             </a>
                         </div>
 
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 pt-0">
 
                             <div class="text-center w-75 m-auto">
-                                <h4 class="text-dark-50 text-center mt-0 fw-bold">Free Sign Up</h4>
+                                <!-- <h4 class="text-dark-50 text-center mt-0 fw-bold">Free Sign Up</h4>
                                 <p class="text-muted mb-4">Don't have an account? Create your account, it takes less
-                                    than a minute </p>
+                                    than a minute </p> -->
+                                <div>
+                                    @error('first_name')
+                                        <span id="title-error" class="error invalid-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div>
+                                    @error('last_name')
+                                        <span id="title-error" class="error invalid-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div>
+                                    @error('email')
+                                        <span id="title-error" class="error invalid-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div>
+                                    @error('mobile_number')
+                                        <span id="title-error" class="error invalid-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div>
+                                    @error('company_name')
+                                        <span id="title-error" class="error invalid-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div>
+                                    @error('designation')
+                                        <span id="title-error" class="error invalid-error">{{ $message }}</span>
+                                    @enderror
+                                </div>
                             </div>
 
-                            <form action="{{route('register.store')}}" method="post">
+                            <form action="{{route('register.store')}}" method="post" class="register-form" novalidate>
                                 @csrf
                                 <div class="mb-3">
                                     <label for="fullname" class="form-label">First Name</label>
                                     <input class="form-control" type="text" name="first_name" id="first_name"
-                                        placeholder="Enter first name" required>
+                                        placeholder="Enter first name" value="{{old('first_name')}}" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid first name.
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="fullname" class="form-label">Last Name</label>
                                     <input class="form-control" type="text" name="last_name" id="last_name"
-                                        placeholder="Enter last name" required>
+                                        placeholder="Enter last name" value="{{old('last_name')}}" required>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid last name.
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
                                     <input class="form-control" type="email" name="email" id="emailaddress" required
-                                        placeholder="Enter your email">
+                                        placeholder="Enter your email" value="{{old('email')}}">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">Mobile Number</label>
+                                    <input class="form-control" type="text" name="mobile_number" id="mobile_number" required
+                                        placeholder="Enter your mobile numner" value="{{old('mobile_number')}}">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid mobile number.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">Company Name</label>
+                                    <input class="form-control" type="text" name="company_name" id="company_name" required
+                                        placeholder="Enter your company name" value="{{old('company_name')}}">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a company name.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">Designation</label>
+                                    <input class="form-control" type="text" name="designation" id="designation" required
+                                        placeholder="Enter your designation" value="{{old('designation')}}">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a designation.
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="emailaddress" class="form-label">Website</label>
+                                    <input class="form-control" type="text" name="website" id="website" required
+                                        placeholder="Enter your website" value="{{old('website')}}">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter a designation.
+                                    </div>
                                 </div>
 
                                 <!-- <div class="mb-3">

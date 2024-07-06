@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\RegistrationRequest;
+use App\Mail\AcknowledgeMail;
+use App\Mail\NewRegistrationMail;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -30,24 +34,33 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(RegistrationRequest $request)
     {
-        $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            // 'username' => 'required|string|unique:users|min:4',
-        ]);
-
         $user = User::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
             // 'username' => $request->username,
+            'mobile_number' => $request->mobile_number,
+            'company_name' => $request->company_name,
+            'designation' => $request->designation,
+            'website' => $request->website,
             'role_id' => 2,
         ]);
 
         $email = $request->email;
+
+        Mail::to($email)->send(new AcknowledgeMail([
+            'email'=> $email,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name
+        ]));
+
+        Mail::to('manikandan@astermedispro.net')->send(new NewRegistrationMail([
+            'email'=> $email,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name
+        ]));
 
         event(new Registered($user));
 
