@@ -50,7 +50,7 @@
             <h2>Signup Confirmation</h2>
         </div>
         <div class="content">
-            <p>Hello {{ $firstName }} {{ $last_name }},</p>
+            <p>Hello {{ $first_name }} {{ $last_name }},</p>
             <p>Your signup has been successfully completed.</p>
             <p>Please note that your account is pending approval by the administrator.</p>
             <p>You will receive further notification within 24 hours regarding your account status.</p>
