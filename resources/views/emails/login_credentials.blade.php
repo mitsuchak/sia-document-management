@@ -63,7 +63,7 @@
             <h2>Your Account is Approved!</h2>
         </div>
         <div class="content">
-            <p>Hello {{ $firstName }},</p>
+            <p>Hello {{ $first_name }},</p>
             <p>Your account has been approved by the administrator.</p>
             <p>You can now login to our site using the following credentials:</p>
             <ul>
