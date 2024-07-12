@@ -34,10 +34,10 @@
                             @csrf
                             <div class="row py-2">
                                 <div class="col-md-2">
-                                    <label>User Name</label>
+                                    <label>Full Name</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="name" id="document_name" placeholder="Enter document name" value="{{$user->first_name}} {{$user->last_name}}" disabled>
+                                    <input type="text" class="form-control" name="first_name" id="full_name" placeholder="Enter document name" value="{{$user->first_name}} {{$user->last_name}}" disabled>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -51,7 +51,7 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter document name" value="{{$user->email}}" disabled>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" value="{{$user->email}}" disabled>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -60,12 +60,58 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row py-2">
                                 <div class="col-md-2">
-                                    <label>Username</label>
+                                    <label>Mobile Number</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter document name" value="{{$user->username}}" disabled>
+                                    <input type="text" class="form-control" name="mobile_number" id="mobile_number" placeholder="Enter mobile number" value="{{$user->mobile_number}}" disabled>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter description.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row py-2">
+                                <div class="col-md-2">
+                                    <label>Company Name</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="company_name" id="company_name" placeholder="Enter company name" value="{{$user->company_name}}" disabled>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter description.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row py-2">
+                                <div class="col-md-2">
+                                    <label>Designation</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="designation" id="designation" placeholder="Enter designation" value="{{$user->designation}}" disabled>
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please enter description.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row py-2">
+                                <div class="col-md-2">
+                                    <label>Website</label>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="website" id="website" placeholder="Enter website" value="{{$user->website}}" disabled>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>

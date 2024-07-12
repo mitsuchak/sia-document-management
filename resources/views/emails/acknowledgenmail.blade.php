@@ -50,11 +50,13 @@
             <h2>Signup Confirmation</h2>
         </div>
         <div class="content">
-            <p>Hello {{ $first_name }} {{ $last_name }},</p>
-            <p>Your signup has been successfully completed.</p>
-            <p>Please note that your account is pending approval by the administrator.</p>
-            <p>You will receive further notification within 24 hours regarding your account status.</p>
-            <p>Thank you for registering with us!</p>
+            <p>Dear {{ $first_name }},</p>
+            <p></p>
+            <p>Thank you for registering with us. You will receive your username and password soon, which will allow you to access the documents.</p>
+            <p>If you have any questions or need further assistance, please do not hesitate to contact us.</p>
+            <p></p>
+            <p>Best regards,</p>
+            <p>ASTER MEDISPRO PRIVATE LIMITED</p>
         </div>
         <div class="footer">
             <p>This email was sent automatically. Please do not reply.</p>

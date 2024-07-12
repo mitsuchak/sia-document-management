@@ -23,9 +23,8 @@ class RegistrationRequest extends FormRequest
     {
         return [
             'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'mobile_number' => 'required|numeric|max_digits:10',
+            'mobile_number' => 'required|numeric|max_digits:10|unique:users',
             'company_name' => 'required|string|max:255',
             'designation' => 'required|string|max:255',
             'website' => 'required|string|max:255',
@@ -57,6 +56,7 @@ class RegistrationRequest extends FormRequest
             'mobile_number.required' => 'The mobile number field is required.',
             'mobile_number.numeric' => 'The mobile number must be a number.',
             'mobile_number.max_digit' => 'The mobile number must not exceed :max digits.',
+            'mobile_number.unique' => 'The mobile number has already been taken.',
             
             'company_name.required' => 'The company name field is required.',
             'company_name.string' => 'The company name must be a string.',

@@ -374,9 +374,9 @@
                             <form action="{{route('register.store')}}" method="post" class="register-form" novalidate>
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="fullname" class="form-label">First Name</label>
+                                    <label for="fullname" class="form-label">Full Name</label>
                                     <input class="form-control" type="text" name="first_name" id="first_name"
-                                        placeholder="Enter first name" value="{{old('first_name')}}" required>
+                                        placeholder="Enter full name" value="{{old('first_name')}}" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -385,7 +385,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="fullname" class="form-label">Last Name</label>
                                     <input class="form-control" type="text" name="last_name" id="last_name"
                                         placeholder="Enter last name" value="{{old('last_name')}}" required>
@@ -395,7 +395,7 @@
                                     <div class="invalid-feedback">
                                         Please enter a valid last name.
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
@@ -504,7 +504,7 @@
         <span class="bg-body">
             <script>
                 document.write(new Date().getFullYear())
-            </script> © Attex - Coderthemes.com
+            </script> © ASTER MEDISPRO PRIVATE LIMITED
         </span>
     </footer>
 

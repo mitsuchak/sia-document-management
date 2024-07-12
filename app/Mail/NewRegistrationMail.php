@@ -32,8 +32,7 @@ class NewRegistrationMail extends Mailable
         return $this->view('emails.newregistration')
                     ->with([
                         'first_name' => $this->credentials['first_name'],
-                        'last_name' => $this->credentials['last_name'],
                     ])
-                    ->subject('Your Login Credentials');
+                    ->subject('New Registration');
     }
 }

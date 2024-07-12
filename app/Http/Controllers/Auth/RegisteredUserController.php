@@ -38,7 +38,6 @@ class RegisteredUserController extends Controller
     {
         $user = User::create([
             'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
             'email' => $request->email,
             // 'username' => $request->username,
             'mobile_number' => $request->mobile_number,
@@ -53,13 +52,11 @@ class RegisteredUserController extends Controller
         Mail::to($email)->send(new AcknowledgeMail([
             'email'=> $email,
             'first_name' => $request->first_name,
-            'last_name' => $request->last_name
         ]));
 
         Mail::to('manikandan@astermedispro.net')->send(new NewRegistrationMail([
             'email'=> $email,
             'first_name' => $request->first_name,
-            'last_name' => $request->last_name
         ]));
 
         event(new Registered($user));

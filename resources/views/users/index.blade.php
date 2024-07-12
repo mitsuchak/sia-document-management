@@ -47,14 +47,15 @@
                         <table id="basic-datatable" class="table table-striped w-100 nowrap table-responsive-sm">
                             <thead>
                                 <tr>
-                                    <th>First name</th>
-                                    <th>Last name</th>
+                                    <th>Full name</th>
                                     <th>Email</th>
+                                    <th>Mobile Number</th>
                                     <th>Company Name</th>
                                     <th>Designation</th>
-                                    <th style="width:15%">
+                                    <th>Website</th>
+                                    <th style="width:10%;">
                                         <form action="{{route('users.index')}}" method="get" id="search_form">
-                                            <select id="filterRole" name="filter_role" class="form-select" onchange="document.getElementById('search_form').submit()" style="width: 150px;">
+                                            <select id="filterRole" name="filter_role" class="form-select" onchange="document.getElementById('search_form').submit()" style="width: 130px;">
                                                 <option value="">Filter By Role</option>
                                                 @foreach($roles as $role)
                                                      <?php $selected = ($search_role == $role->id ? "Selected='selected'" : ''); ?>
@@ -63,7 +64,7 @@
                                             </select>
                                         </form>
                                     </th>
-                                    <th style="width:15%">Action</th>
+                                    <th style="width:10%; text-align:center">Action</th>
                                     </tr>
                             </thead>
                             <tbody>
@@ -71,11 +72,12 @@
                                 @foreach($users as $key=>$user)
                                 <tr>
                                     <td>{{$user->first_name}}</td>
-                                    <td>{{$user->last_name}}</td>
                                     <td>{{$user->email}}</td>
+                                    <td>{{!is_null($user->mobile_number) ? $user->mobile_number : 'NA'}}</td>
                                     <td>{{!is_null($user->company_name) ? $user->company_name : 'NA'}}</td>
                                     <td>{{!is_null($user->designation) ? $user->designation : 'NA'}}</td>
-                                    <td>{{$user->roles->role_name}}</td>
+                                    <td>{{!is_null($user->website) ? $user->website : 'NA'}}</td>
+                                    <td style="text-align: center;">{{$user->roles->role_name}}</td>
                                     <td>
                                         <a href="{{route('users.edit',['id'=>$user->id])}}" class="btn btn-warning rounded-pill">Edit</a>
                                         <a href="{{route('users.delete',['id'=>$user->id])}}" class="btn btn-danger rounded-pill">Delete</a>

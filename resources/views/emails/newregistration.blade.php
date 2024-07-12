@@ -52,8 +52,7 @@
         <div class="content">
             <p>Hello Admin,</p>
             <p>A new user has registered on your website.</p>
-            <p><strong>First Name:</strong> {{ $first_name }}</p>
-            <p><strong>Last Name:</strong> {{ $last_name }}</p>
+            <p><strong>Full Name:</strong> {{ $first_name }}</p>
             <p>You can review their profile and take appropriate actions.</p>
             <p>Thank you!</p>
         </div>

@@ -261,7 +261,7 @@
         <span class="bg-body">
             <script>
                 document.write(new Date().getFullYear())
-            </script> ©
+            </script> © ASTER MEDISPRO PRIVATE LIMITED
         </span>
     </footer>
     @vite(['resources/js/app.js'])

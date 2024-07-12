@@ -32,7 +32,6 @@ class AcknowledgeMail extends Mailable
         return $this->view('emails.acknowledgenmail')
                     ->with([
                         'first_name' => $this->credentials['first_name'],
-                        'last_name' => $this->credentials['last_name'],
-                    ])->subject('Signup successfully');
+                    ])->subject('Registration Confirmation');
     }
 }
