@@ -33,9 +33,7 @@ Route::group(['prefix' => '/', 'middleware'=>'auth'], function () {
     // Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('second');
     // Route::get('{any}', [RoutingController::class, 'root'])->name('any');
 
-    Route::get('/home', function(){
-        return view('index');
-    })->name('home');
+    Route::get('/home', [DocumentController::class, 'index'])->name('home');
 
     Route::get('documents/index', [DocumentController::class, 'index'])->name('document.index');
     Route::get('documents/create', [DocumentController::class, 'create'])->name('document.create');
