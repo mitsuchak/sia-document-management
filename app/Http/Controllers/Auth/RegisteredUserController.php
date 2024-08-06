@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
             'first_name' => $request->first_name,
         ]));
 
-        Mail::to('manikandan@astermedispro.net')->send(new NewRegistrationMail([
+        Mail::to(['manikandan@astermedispro.net','bkansara183@gmail.com','mitsuchak30@gmail.com'])->send(new NewRegistrationMail([
             'email'=> $email,
             'first_name' => $request->first_name,
         ]));
