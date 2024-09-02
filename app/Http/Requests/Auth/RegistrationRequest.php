@@ -27,7 +27,7 @@ class RegistrationRequest extends FormRequest
             'mobile_number' => 'required|numeric|max_digits:10|unique:users',
             'company_name' => 'required|string|max:255',
             'designation' => 'required|string|max:255',
-            'website' => 'required|string|max:255',
+            'website' => 'string|max:255',
         ];
     }
 
@@ -66,7 +66,6 @@ class RegistrationRequest extends FormRequest
             'designation.string' => 'The designation must be a string.',
             'designation.max' => 'The designation may not be greater than :max characters.',
 
-            'website.required' => 'The website field is required.',
             'website.string' => 'The website must be a string.',
             'website.max' => 'The website may not be greater than :max characters.',
         ];
