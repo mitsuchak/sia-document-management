@@ -49,15 +49,7 @@ class RegisteredUserController extends Controller
 
         $email = $request->email;
 
-        Mail::to($email)->send(new AcknowledgeMail([
-            'email'=> $email,
-            'first_name' => $request->first_name,
-        ]));
 
-        Mail::to(['manikandan@astermedispro.net','bkansara183@gmail.com','mitsuchak30@gmail.com','customercare@astermedispro.net'])->send(new NewRegistrationMail([
-            'email'=> $email,
-            'first_name' => $request->first_name,
-        ]));
 
         event(new Registered($user));
 

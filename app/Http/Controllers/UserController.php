@@ -96,11 +96,7 @@ class UserController extends Controller
 
             $user->password = bcrypt($password);
 
-            Mail::to($user['email'])->send(new LoginCredentials([
-                'first_name' => $user['first_name'],
-                'email' => $user['email'],
-                'password' => $password,
-            ]));
+            
         }
         $user->save();
         
